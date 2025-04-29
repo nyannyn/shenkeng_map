@@ -1,0 +1,106 @@
+/* 應用程式樣式 */
+.app-container {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #333;
+}
+
+/* 嵌入式地圖樣式 */
+.embedded-map {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border: none;
+  border-radius: 12px;
+}
+
+.embedded-map-container {
+  position: relative;
+  padding-bottom: 16px;
+  height: 70vh;
+  min-height: 400px;
+}
+
+/* 備用地圖樣式 */
+.fallback-map {
+  background-color: #f4f8f9;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 20px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.fallback-map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  position: relative;
+}
+
+.fallback-map-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.fallback-map-control {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.fallback-map-control:hover {
+  transform: scale(1.1);
+}
+
+.attraction-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+}
+
+.attraction-marker:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 10;
+}
+
+.attraction-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 10;
+  margin-bottom: 8px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.attraction-marker:hover .attraction-tooltip,
+.attraction-tooltip.active {
+  visibility: visible;
+  opacity: 1;
+} 

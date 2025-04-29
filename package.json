@@ -1,0 +1,42 @@
+{
+  "name": "shenkeng-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "深坑步道互動式地圖導覽網站 | Interactive map for Shenkeng trails and attractions",
+  "keywords": [
+    "shenkeng",
+    "trails",
+    "interactive-map",
+    "react",
+    "google-maps"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NCCU-UIUX/map.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.6",
+    "lucide-react": "^0.503.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "vite": "^4.4.5"
+  }
+} 

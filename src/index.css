@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nature-green: #A8CF8F;
+  --sun-yellow: #FEEA8A;
+  --sky-blue: #A1D2E6;
+  --earth-gray: #C0B5A2;
+  --cta-orange: #F3A15F;
+  --path-purple: #C8A2C8;
+  --highlight-teal: #7BDFF2;
+  --soft-pink: #F9D5E5;
+  --leaf-green: #87C38F;
+  --mountain-brown: #C8B199;
+  --water-blue: #B4DDE3;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-opacity='0.05'%3E%3Ccircle fill='%23000000' cx='50' cy='50' r='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* 确保所有中文文本使用Noto Sans TC字体 */
+[lang="zh-TW"], 
+[lang="zh"], 
+.zh, 
+:lang(zh) {
+  font-family: 'Noto Sans TC', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 地圖容器樣式 */
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.map-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.map-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #333;
+}
+
+.map-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.map-control-btn {
+  background-color: #fff;
+  border: 2px solid var(--earth-gray);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-control-btn.active {
+  background-color: var(--sky-blue);
+  border-color: var(--sky-blue);
+  color: #fff;
+}
+
+.map-wrapper {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  min-height: 60vh;
+}
+
+.map-legend {
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.map-legend h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-left-color: var(--sky-blue);
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text-sky-blue {
+  color: var(--sky-blue);
+}
+
+.text-nature-green {
+  color: var(--nature-green);
+}
+
+.text-earth-gray {
+  color: var(--earth-gray);
+}
+
+.text-cta-orange {
+  color: var(--cta-orange);
+}
+
+/* 地圖元素樣式 */
+.trail-path {
+  stroke-dasharray: 8;
+  stroke-dashoffset: 0;
+  animation: dash-animation 60s linear infinite;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-width: 3;
+}
+
+@keyframes dash-animation {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
+.marker:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.marker-pulse {
+  animation: marker-pulse 2s infinite;
+}
+
+@keyframes marker-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} 
