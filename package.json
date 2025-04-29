@@ -2,6 +2,7 @@
   "name": "shenkeng-map",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "深坑步道互動式地圖導覽網站 | Interactive map for Shenkeng trails and attractions",
   "keywords": [
     "shenkeng",
